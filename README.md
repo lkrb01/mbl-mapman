@@ -190,6 +190,7 @@ const {
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `markers` | `MapMarker[]` | `[]` | Markers to display |
+| `highlightedMarkerId` | `string` | `undefined` | Renders the matching marker in its hover state (size + color) |
 | `landColor` | `string` | `#2d5a3d` | Fill colour for land |
 | `seaColor` | `string` | `#1a3a5c` | Fill colour for the ocean |
 | `borderColor` | `string` | `rgba(255,255,255,0.2)` | Country border stroke |

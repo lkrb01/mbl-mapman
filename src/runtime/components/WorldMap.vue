@@ -7,6 +7,7 @@ import type { MapMarker } from '../types'
 
 const props = withDefaults(defineProps<{
   markers?: MapMarker[]
+  highlightedMarkerId?: string
   landColor?: string
   seaColor?: string
   borderColor?: string
@@ -16,6 +17,7 @@ const props = withDefaults(defineProps<{
   markerHoverRadius?: number
 }>(), {
   markers: () => [],
+  highlightedMarkerId: undefined,
   landColor: '#2d5a3d',
   seaColor: '#1a3a5c',
   borderColor: 'rgba(255,255,255,0.2)',
@@ -63,8 +65,10 @@ function renderMarkers() {
       const pt = projectionFn!([d.lng, d.lat])
       return pt ? pt[1] : -9999
     })
-    .attr('r', props.markerRadius)
-    .attr('fill', d => d.color ?? props.markerColor)
+    .attr('r', d => d.id === props.highlightedMarkerId ? props.markerHoverRadius : props.markerRadius)
+    .attr('fill', d => d.id === props.highlightedMarkerId
+      ? (d.hoverColor ?? d.color ?? props.markerHoverColor)
+      : (d.color ?? props.markerColor))
     .attr('stroke', '#fff')
     .attr('stroke-width', '1.5')
     .style('cursor', 'pointer')
@@ -143,6 +147,7 @@ onUnmounted(() => {
 })
 
 watch(() => props.markers, renderMarkers, { deep: true })
+watch(() => props.highlightedMarkerId, renderMarkers)
 </script>
 
 <template>
