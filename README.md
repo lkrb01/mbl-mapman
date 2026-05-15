@@ -215,6 +215,7 @@ interface MapMarker {
   lat: number
   lng: number
   color?: string                   // overrides the markerColor prop for this marker
+  hoverColor?: string              // overrides hover color — falls back to color, then markerHoverColor prop
   data?: Record<string, unknown>   // your custom payload
 }
 

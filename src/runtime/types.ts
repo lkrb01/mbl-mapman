@@ -4,6 +4,7 @@ export interface MapMarker {
   lat: number
   lng: number
   color?: string
+  hoverColor?: string
   data?: Record<string, unknown>
 }
 

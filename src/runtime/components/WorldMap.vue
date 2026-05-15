@@ -70,7 +70,7 @@ function renderMarkers() {
     .style('cursor', 'pointer')
     .on('mouseenter', function (event: MouseEvent, d: MapMarker) {
       d3.select(this)
-        .attr('fill', props.markerHoverColor)
+        .attr('fill', d.hoverColor ?? d.color ?? props.markerHoverColor)
         .attr('r', props.markerHoverRadius)
       emit('marker-mouseenter', d, event)
     })
