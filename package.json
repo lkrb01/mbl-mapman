@@ -1,6 +1,6 @@
 {
   "name": "mbl-mapman",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nuxt 4 module — label-free world map with searchable city markers and a full hover/click event API",
   "repository": "lkrb01/mbl-mapman",
   "license": "MIT",
