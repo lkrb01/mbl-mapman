@@ -214,6 +214,7 @@ interface MapMarker {
   name: string
   lat: number
   lng: number
+  color?: string                   // overrides the markerColor prop for this marker
   data?: Record<string, unknown>   // your custom payload
 }
 

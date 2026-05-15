@@ -64,7 +64,7 @@ function renderMarkers() {
       return pt ? pt[1] : -9999
     })
     .attr('r', props.markerRadius)
-    .attr('fill', props.markerColor)
+    .attr('fill', d => d.color ?? props.markerColor)
     .attr('stroke', '#fff')
     .attr('stroke-width', '1.5')
     .style('cursor', 'pointer')
@@ -76,7 +76,7 @@ function renderMarkers() {
     })
     .on('mouseleave', function (event: MouseEvent, d: MapMarker) {
       d3.select(this)
-        .attr('fill', props.markerColor)
+        .attr('fill', d.color ?? props.markerColor)
         .attr('r', props.markerRadius)
       emit('marker-mouseleave', d, event)
     })

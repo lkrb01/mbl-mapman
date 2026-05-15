@@ -3,6 +3,7 @@ export interface MapMarker {
   name: string
   lat: number
   lng: number
+  color?: string
   data?: Record<string, unknown>
 }
 

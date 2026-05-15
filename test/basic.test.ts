@@ -7,9 +7,8 @@ describe('ssr', async () => {
     rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url)),
   })
 
-  it('renders the index page', async () => {
-    // Get response to a server-rendered page with `$fetch`.
+  it('renders without errors and auto-imports useMapman', async () => {
     const html = await $fetch('/')
-    expect(html).toContain('<div>basic</div>')
+    expect(html).toContain('mbl-mapman loaded')
   })
 })
